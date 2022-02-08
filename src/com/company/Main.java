@@ -9,4 +9,9 @@ public class Main {
                 frame.getContentPane().add(button); // Adds Button to content pane of frame
                 frame.setVisible(true);
             }
+
+
+            public static void printThing() {
+                System.out.println("beans");
+            }
 }
