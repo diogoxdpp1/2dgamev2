@@ -1,6 +1,6 @@
 package com.company.enemies;
 
-public class hardEnemy extends enemyTemplate{
+public class hardEnemy extends enemyTemplate {
     private int xpos;
     private int ypos;
     private int currentHP;
