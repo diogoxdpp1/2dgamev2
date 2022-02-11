@@ -10,8 +10,6 @@ public class Main {
                 frame.setVisible(true);
             }
 
+            aa
 
-            public static void printThing() {
-                System.out.println("beans");
-            }
 }
