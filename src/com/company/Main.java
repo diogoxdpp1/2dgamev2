@@ -11,13 +11,11 @@ import javax.swing.JPanel;
 
 import javax.swing.*;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
                 JFrame frame = new JFrame("My First GUI");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 GUI GUI = new GUI(300, 300);
-                BufferedImage myPicture = ImageIO.read(new File("path-to-file"));
-                JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-                frame.setIconImage(picLabel);
+                ImageIcon iconLogo = new ImageIcon("Images/YourCompanyLogo.png");
                 frame.setSize(GUI.getGridHeight(), GUI.getGridLength());
                 frame.setVisible(true);
             }
