@@ -8,7 +8,7 @@ public class userTemplate {
         this.highscore = highscore;
     }
 
-    private String username;
+    public String username;
 
     public String getUsername() {
         return username;
@@ -42,7 +42,7 @@ public class userTemplate {
         this.highscore = highscore;
     }
 
-    private String email;
-    private String password;
-    private int highscore;
+    public String email;
+    public String password;
+    public int highscore;
 }
