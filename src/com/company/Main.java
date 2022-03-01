@@ -1,5 +1,7 @@
 package com.company;
 import com.company.frontEnd.GUI;
+import com.company.frontEnd.GamePanel;
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -14,9 +16,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
                 JFrame frame = new JFrame("My First GUI");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                GUI GUI = new GUI(300, 300);
-                ImageIcon iconLogo = new ImageIcon("Images/YourCompanyLogo.png");
-                frame.setSize(GUI.getGridHeight(), GUI.getGridLength());
+                frame.setResizable(false);
+                frame.setTitle("2D Adventure");
+
+                GamePanel gamePanel = new GamePanel();
+                frame.add(gamePanel);
+
+                frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
             }
 }
