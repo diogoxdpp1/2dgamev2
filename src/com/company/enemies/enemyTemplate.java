@@ -3,15 +3,24 @@ package com.company.enemies;
 public class enemyTemplate {
 
 
-    public enemyTemplate(boolean isAlive, int maxHP, int currentHP, int ypos, int xpos) {
+    public enemyTemplate(boolean isAlive, int maxHP, int currentHP, int ypos, int xpos, int points) {
         this.isAlive = isAlive;
         this.maxHP = maxHP;
         this.currentHP = currentHP;
         this.ypos = ypos;
         this.xpos = xpos;
+        this.points = points;
     }
 
     public enemyTemplate() {
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 
     public int getXpos() {
@@ -59,4 +68,5 @@ public class enemyTemplate {
     private int currentHP;
     private int ypos;
     private int xpos;
+    private int points;
 }
