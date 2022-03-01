@@ -20,7 +20,7 @@ public class Main {
                 frame.setTitle("2D Adventure");
 
                 GamePanel gamePanel = new GamePanel();
-                frame.add(gamePanel);
+                frame.add(gamePanel);;
 
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
