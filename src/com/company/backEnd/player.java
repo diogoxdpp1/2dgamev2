@@ -7,14 +7,16 @@ public class player {
     private int ypos;
     private boolean isAlive;
     private String playerName;
+    private int playerScore;
 
-    public player(int currentHP, int maxHP, int xpos, int ypos, boolean isAlive, String playerName) {
+    public player(int currentHP, int maxHP, int xpos, int ypos, boolean isAlive, String playerName,int playerScore) {
         this.currentHP = currentHP;
         this.maxHP = maxHP;
         this.xpos = xpos;
         this.ypos = ypos;
         this.isAlive = isAlive;
         this.playerName = playerName;
+        this.playerScore = playerScore;
     }
 
     public int getCurrentHP() {
@@ -63,5 +65,13 @@ public class player {
 
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
+    }
+
+    public int getScore() {
+        return playerScore;
+    }
+
+    public void setScore(int score) {
+        this.playerScore = score;
     }
 }
