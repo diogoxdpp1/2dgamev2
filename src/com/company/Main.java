@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-
+import com.company.backEnd.Menu;
 import javax.swing.*;
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -24,5 +24,23 @@ public class Main {
 
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
+
+                switch(){
+
+                    case("guest"):
+                     Menu.guestMenu();
+                     break;
+
+                    case("log off"):
+                        break;
+
+                    case("create account"):
+                        createAccount();
+                        break;
+
+                    case("sign in"):
+                        signIn();
+                }
             }
+
 }
