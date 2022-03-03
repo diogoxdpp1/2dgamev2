@@ -1,7 +1,7 @@
 package com.company.backEnd;
 
 import java.util.Scanner;
-
+import com.company.backEnd.usertypes.user;
 public class Menu {
 
     public static String getInput(String prompt) {
@@ -11,6 +11,24 @@ public class Menu {
     }
 
     public static boolean loggedIn = true;
+
+    public static void startScreen(){
+         switch(){
+             case ("log in "):
+                 playerLogin();
+                playerMenu()
+                 break;
+
+             case ("create account"):
+                 createAccount();
+                 playerMenu();
+                 break;
+
+             case ("play as guest"):
+                 guestMenu();
+                 break;
+         }
+    }
 
     public static void guestMenu() {
         while (loggedIn) {
@@ -32,7 +50,6 @@ public class Menu {
 
         }
     }
-
 
     public static void playerMenu() {
         while (loggedIn) {
@@ -60,4 +77,7 @@ public class Menu {
         }
     }
 
+    public static void createAccount(){
+
+    }
 }
