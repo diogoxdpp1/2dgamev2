@@ -1,7 +1,16 @@
-package com.company.backEnd;
+//TO DO !
+// replace console input with GUIs
+// sort out user verifs w/ Aidan
 
+
+
+package com.company.backEnd;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.company.backEnd.usertypes.user;
+import com.company.backEnd.usertypes.guest;
 public class Menu {
 
     public static String getInput(String prompt) {
@@ -9,14 +18,14 @@ public class Menu {
         Scanner input = new Scanner(System.in);
         return input.nextLine();
     }
-
+    public static boolean isGuest;
     public static boolean loggedIn = true;
 
     public static void startScreen(){
-         switch(){
+         switch(getInput("would you like to log in,create account or play as a guest?")){
              case ("log in "):
                  playerLogin();
-                playerMenu()
+                playerMenu();
                  break;
 
              case ("create account"):
@@ -32,7 +41,8 @@ public class Menu {
 
     public static void guestMenu() {
         while (loggedIn) {
-            switch () {
+            isGuest = true;
+            switch (getInput("would you like to play, see the leaderboard or log off?")) {
 
                 case ("play"):
                     playGame();
@@ -53,7 +63,7 @@ public class Menu {
 
     public static void playerMenu() {
         while (loggedIn) {
-            switch () {
+            switch (getInput("would you like to play , see the leaderboard , check out the extras or log off?")) {
 
                 case ("play"):
                     playGame();
@@ -78,6 +88,48 @@ public class Menu {
     }
 
     public static void createAccount(){
-
+        new user(getInput("please enter a username"),getEmail(),getPassword(),0);
     }
-}
+
+    public static String getEmail() {
+        while (true) {
+            String emailInput = getInput("please enter a valid email");
+            if (emailInput.contains("@") && emailInput.contains(".com")) {
+                return emailInput;
+            } else {
+                System.out.println("that is not a valid email, please try again");
+            }
+        }
+    }
+    public static String getPassword() {
+
+        Pattern validPassword = Pattern.compile("(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}");
+
+        while (true) {
+            String passwordInput = getInput("please enter a secure password, it must have 1 uppercase letter, 1 special character, and be at least 8 letters long");
+            Matcher matcher = validPassword.matcher(passwordInput);
+            if (matcher.matches()) {
+                return passwordInput;
+            } else {
+                System.out.println("that is not a secure enough password, please try again");
+            }
+        }
+    }
+
+    public static void playerLogin() {
+        boolean loggedIn = false;
+        while (!loggedIn) {
+            String emailInput = getInput("please enter a valid email");
+            String passwordInput = getInput("please enter the password for this account");
+
+            //verification stuff goes here Aidan
+
+                if (loggedIn) {
+                    break;
+                } else {
+                    System.out.println("your input does not match our database, please try again");
+                }
+
+            }
+        }
+    }
