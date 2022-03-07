@@ -9,8 +9,6 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.company.backEnd.usertypes.user;
-import com.company.backEnd.usertypes.guest;
 public class Menu {
 
     public static String getInput(String prompt) {
@@ -18,7 +16,7 @@ public class Menu {
         Scanner input = new Scanner(System.in);
         return input.nextLine();
     }
-    public static boolean isGuest;
+    public static boolean isGuest = false;
     public static boolean loggedIn = true;
 
     public static void startScreen(){

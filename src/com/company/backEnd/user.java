@@ -1,7 +1,7 @@
-package com.company.backEnd.usertypes;
+package com.company.backEnd;
 
-public class userTemplate {
-    public userTemplate(String username, String email, String password, int highscore) {
+public class user {
+    public user(String username, String email, String password, int highscore) {
         this.username = username;
         this.email = email;
         this.password = password;
