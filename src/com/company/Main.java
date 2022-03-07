@@ -19,10 +19,12 @@ public class Main {
                 frame.setResizable(false);
                 frame.setTitle("2D Adventure");
 
-                GamePanel gamePanel = new GamePanel();
-                frame.add(gamePanel);;
+                GamePanel gamePanel = new GamePanel(13,23);
+                frame.add(gamePanel);
 
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
+
+
             }
 }

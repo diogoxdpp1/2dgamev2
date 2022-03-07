@@ -8,7 +8,7 @@ package com.company.backEnd;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import com.company.backEnd.user;
 public class Menu {
 
     public static String getInput(String prompt) {
@@ -84,6 +84,12 @@ public class Menu {
             }
         }
     }
+    public static void playGame(){};
+
+    public static void viewLeaderboard(){
+    };
+
+    public static void extras(){};
 
     public static void createAccount(){
         new user(getInput("please enter a username"),getEmail(),getPassword(),0);
