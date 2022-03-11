@@ -9,8 +9,22 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.company.backEnd.user;
+
+import javax.swing.*;
+
 public class Menu {
 
+    public static void guiMenu(){
+        JFrame menu = new JFrame();
+        menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menu.setResizable(false);
+        menu.setTitle("Face Invaders");
+
+        menu.setLocationRelativeTo(null);
+        menu.setVisible(true);
+
+
+    }
     public static String getInput(String prompt) {
         System.out.println(prompt);
         Scanner input = new Scanner(System.in);
