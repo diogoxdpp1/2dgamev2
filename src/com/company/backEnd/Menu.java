@@ -5,27 +5,26 @@
 
 
 package com.company.backEnd;
-import java.sql.*;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.company.backEnd.user;
+
+import javax.swing.*;
+
 public class Menu {
 
-    private static final String DatabaseLocation = System.getProperty("user.dir") + "\\2DGame Database.accdb";
+    public static void guiMenu(){
+        JFrame menu = new JFrame();
+        menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menu.setResizable(false);
+        menu.setTitle("Face Invaders");
 
-    public static Connection getConnection() {
+        menu.setLocationRelativeTo(null);
+        menu.setVisible(true);
 
-        try {
-            return DriverManager.getConnection("jdbc:ucanaccess://" + DatabaseLocation, "", "");
-        } catch (Exception e) {
-            System.out.println("Error in database connection" + e);
-        }
-        return null;
+
     }
-
-
-
     public static String getInput(String prompt) {
         System.out.println(prompt);
         Scanner input = new Scanner(System.in);
@@ -108,21 +107,7 @@ public class Menu {
 
     public static void createAccount(){
         new user(getInput("please enter a username"),getEmail(),getPassword(),0);
-
-        String query = "INSERT INTO Users(UserName, password, Email) VALUES" + ();
-
-        try (Statement stmt = getConnection().createStatement()){
-
-            ResultSet rs = stmt.executeQuery(query);
-
-        }catch (SQLException e){
-            System.out.println("Problem with SQL query" + e);
-        }
-
-
     }
-
-
 
     public static String getEmail() {
         while (true) {
