@@ -1,4 +1,5 @@
 package com.company;
+import com.company.backEnd.menuGUI;
 import com.company.frontEnd.GUI;
 import com.company.frontEnd.GamePanel;
 
@@ -14,12 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.*;
 public class Main {
     public static void main(String[] args) throws IOException {
+
+        menuGUI.menuGui();
                 JFrame frame = new JFrame("My First GUI");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setResizable(false);
                 frame.setTitle("2D Adventure");
 
-                GamePanel gamePanel = new GamePanel(13,23);
+                GamePanel gamePanel = new GamePanel();
                 frame.add(gamePanel);
 
                 frame.setLocationRelativeTo(null);
