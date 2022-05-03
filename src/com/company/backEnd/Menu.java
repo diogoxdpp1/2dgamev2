@@ -5,6 +5,10 @@
 
 
 package com.company.backEnd;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,6 +18,17 @@ import javax.swing.*;
 
 public class Menu {
 
+    public static void guiMenu(){
+        JFrame menu = new JFrame();
+        menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menu.setResizable(false);
+        menu.setTitle("Face Invaders");
+
+        menu.setLocationRelativeTo(null);
+        menu.setVisible(true);
+
+
+    }
     public static String getInput(String prompt) {
         System.out.println(prompt);
         Scanner input = new Scanner(System.in);
@@ -94,8 +109,24 @@ public class Menu {
 
     public static void extras(){};
 
+    private static final String DatabaseLocation = System.getProperty("user.dir") + "\\FaceInvadersDB.accdb";
+
+    public static Connection getConnection() {
+
+        try {
+            Connection con = DriverManager.getConnection("jdbc:ucanaccess://" + DatabaseLocation, "", "");
+            return con;
+        } catch (Exception e) {
+            System.out.println("Error in database connection" + e);
+        }
+        return null;
+    }
+
+
     public static void createAccount(){
         new user(getInput("please enter a username"),getEmail(),getPassword(),0);
+
+
     }
 
     public static String getEmail() {
@@ -123,11 +154,26 @@ public class Menu {
         }
     }
 
-    public static void playerLogin() {
+    public static void playerLogin() throws SQLException {
         boolean loggedIn = false;
         while (!loggedIn) {
             String emailInput = getInput("please enter a valid email");
             String passwordInput = getInput("please enter the password for this account");
+
+            String sql = "SELECT * FROM Users WHERE Email= '" + emailInput + "' AND Password =" + passwordInput + "'";
+            ResultSet rs = Database.executeQuery(getConnection(), sql);
+            String DatabaseUsername = "";
+            String DatabasePassword = "";
+            while (rs.next()) {
+                DatabaseUsername = rs.getString("UserName");
+                DatabasePassword = rs.getString("Password");
+            }
+
+            if (emailInput.equals(DatabaseUsername) && passwordInput.equals(DatabasePassword)) {
+                loggedIn = true;
+            } else {
+                loggedIn = false;
+            }
 
             //verification stuff goes here Aidan
 

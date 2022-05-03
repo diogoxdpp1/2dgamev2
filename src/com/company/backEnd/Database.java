@@ -1,21 +1,21 @@
 package com.company.backEnd;
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.ResultSet;
 public class Database {
 
-    //the location of the access database
-    private static final String DatabaseLocation = System.getProperty("user.dir") + "\\2DGame Database.accdb";
 
-    //Connects to the access database
-    public static Connection getConnection() {
+    public static ResultSet executeQuery(Connection con, String query) {
 
         try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://" + DatabaseLocation, "", "");
-            return con;
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = stmt.executeQuery(query);
+
+            return rs;
         } catch (Exception e) {
-            System.out.println("Error in database connection" + e);
+            System.out.println("Error in the ExecuteSQL class:" + e);
+            return null;
         }
-        return null;
     }
 
 
